@@ -37,14 +37,13 @@ class TestTask:
         """Параметризованная проверка наличия значения во множестве"""
         assert (element in set) == expected
 
-    def test_set_discard_nonexistent_element(self):
-        """Проверка удаления несуществующего элемента"""
+    def test_set_remove_nonexistent_element(self):
+        """Проверка удаления несуществующего элемента, ожидается KeyError"""
         test_set = {1, 2, 3}
-        element_to_discard = 4
-        test_set.discard(element_to_discard)
+        element_to_remove = 4
 
-        assert test_set == {1, 2, 3}
-
+        with pytest.raises(KeyError):
+            test_set.remove(element_to_remove)
 
 
 
